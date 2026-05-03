@@ -4,10 +4,10 @@
 
 Grant Lavell Whitmer III · Windstorm Labs, The Windstorm Institute · Fort Ann, NY, USA
 
+[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.20014391-blue)](https://doi.org/10.5281/zenodo.20014391)
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey)](https://creativecommons.org/licenses/by/4.0/)
-[![Status: Preprint](https://img.shields.io/badge/Status-Preprint-orange)](https://github.com/Windstorm-Institute/phonon-extraction-bound)
 
-**Zenodo**: DOI pending · **Current version: v1.0** (May 2026)
+**Zenodo**: [10.5281/zenodo.20014391](https://doi.org/10.5281/zenodo.20014391) · **Current version: v1.0** (May 2026)
 
 ---
 
@@ -67,7 +67,7 @@ Numerical tests in Section 3 use QuTiP 5.2.3. Total compute cost across all repo
 
 | # | Paper | DOI |
 |---|-------|-----|
-| 10 | [Phonon Extraction Bound (BEC Analog Gravity)](https://github.com/Windstorm-Institute/phonon-extraction-bound) | DOI pending |
+| 10 | [Phonon Extraction Bound (BEC Analog Gravity)](https://github.com/Windstorm-Institute/phonon-extraction-bound) | [10.5281/zenodo.20014391](https://doi.org/10.5281/zenodo.20014391) |
 
 **Website:** [windstorminstitute.org](https://windstorminstitute.org)
 
