@@ -31,6 +31,13 @@ The paper does **not** modify Newtonian or general-relativistic gravity, does no
 - **[paper/Paper10-v1.0-draft.md](paper/Paper10-v1.0-draft.md)** — markdown source
 - **[Website article](https://windstorminstitute.org/articles/phonon-extraction-bound.html)** — long-form companion
 
+## Experiment Code
+
+QuTiP Lindblad simulations (Section 3 of the paper) and raw output logs:
+**[Windstorm-Labs/phonon-extraction-bound](https://github.com/Windstorm-Labs/phonon-extraction-bound)**
+
+Current authoritative archive: **[Zenodo (10.5281/zenodo.20014391)](https://doi.org/10.5281/zenodo.20014391)**. Mirroring to the Labs repo is in progress.
+
 ## Falsification protocol (Section 6)
 
 The framework is falsified if a controlled BEC analog gravity experiment with `T/T_res` varied across `[0.05, 0.5]` produces phonon extraction efficiencies that:
