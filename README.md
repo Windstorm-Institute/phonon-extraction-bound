@@ -78,7 +78,7 @@ Numerical tests in Section 3 use QuTiP 5.2.3. Total compute cost across all repo
 | 8 | [The Vision Basin](https://github.com/Windstorm-Institute/vision-basin) | [10.5281/zenodo.19672827](https://doi.org/10.5281/zenodo.19672827) |
 | 9 | [The Hardware Basin](https://github.com/Windstorm-Institute/hardware-basin) | [10.5281/zenodo.19672921](https://doi.org/10.5281/zenodo.19672921) |
 
-### Track 2 — Entropic Bounds in Analog Systems · 3 papers (Papers 10–12 globally; 1st through 3rd in this track; line of inquiry active)
+### Track 2 — Entropic Bounds in Analog Systems · 4 papers (Papers 10–13 globally; 1st through 4th in this track; line of inquiry active)
 
 | # | Paper | DOI |
 |---|-------|-----|
@@ -86,6 +86,7 @@ Numerical tests in Section 3 use QuTiP 5.2.3. Total compute cost across all repo
 | 11 | [Gravitational Entropy Escrow](https://github.com/Windstorm-Institute/gravitational-entropy-escrow) *(2nd in track)* | [10.5281/zenodo.20032023](https://doi.org/10.5281/zenodo.20032023) |
 | 12 | [C8 Clarification Note](https://github.com/Windstorm-Institute/c8-clarification-note) *(3rd in track; companion to Paper 11)* | [10.5281/zenodo.20041992](https://doi.org/10.5281/zenodo.20041992) |
 
+| 13 | [Lattice QFT Test of the Static Escrow Postulate](https://github.com/Windstorm-Institute/lattice-qft-test) *(4th in track; supplement to Paper 11)* | [10.5281/zenodo.20043421](https://doi.org/10.5281/zenodo.20043421) |
 **Website:** [windstorminstitute.org](https://windstorminstitute.org)
 
 ---
