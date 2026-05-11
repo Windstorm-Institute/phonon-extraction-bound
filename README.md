@@ -78,7 +78,7 @@ Numerical tests in Section 3 use QuTiP 5.2.3. Total compute cost across all repo
 | 8 | [The Vision Basin](https://github.com/Windstorm-Institute/vision-basin) | [10.5281/zenodo.19672827](https://doi.org/10.5281/zenodo.19672827) |
 | 9 | [The Hardware Basin](https://github.com/Windstorm-Institute/hardware-basin) | [10.5281/zenodo.19672921](https://doi.org/10.5281/zenodo.19672921) |
 
-### Track 2 — Entropic Bounds in Analog Systems · 4 papers (Papers 10–13 globally; 1st through 4th in this track; line of inquiry active)
+### Track 2 — Entropic Bounds in Analog Systems · 5 papers (Papers 10–14 globally; 1st through 4th in this track; line of inquiry active)
 
 | # | Paper | DOI |
 |---|-------|-----|
