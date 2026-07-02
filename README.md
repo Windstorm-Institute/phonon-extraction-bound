@@ -16,12 +16,12 @@ Grant Lavell Whitmer III · Windstorm Labs, The Windstorm Institute · Fort Ann,
 Apply the Clausius inequality to a two-temperature process — a system at the local analog Unruh temperature `T` coupled to an energy reservoir at temperature `T_res` — with the entropy change on a holographic-style screen taken from Verlinde's expression. Under one explicit thermodynamic assumption (Assumption A: the screen exchanges heat reversibly with its immediate environment while the reservoir coupling carries the irreversibility), the maximum extraction efficiency is
 
 ```
-η ≤ 1 / (1 + T/T_res)
+η ≤ 1 − T/T_res
 ```
 
-For laboratory BEC parameters (`T_res ~ 50 nK`, `T_analog ~ 10 nK`), the bound predicts `η ≤ 0.83` — a 17% suppression below the naive energetic expectation. The regime `T/T_res ~ O(1)` is accessible in BEC analog gravity but not in any astrophysical setting, which is where the bound has empirical content distinguishable from standard energy accounting.
+For laboratory BEC parameters (`T_res ~ 50 nK`, `T_analog ~ 10 nK`), the bound predicts `η ≤ 0.80` — a 20% suppression below the naive energetic expectation. The regime `T/T_res ~ O(1)` is accessible in BEC analog gravity but not in any astrophysical setting, which is where the bound has empirical content distinguishable from standard energy accounting.
 
-Assumption A is tested numerically across five independent dimensions via QuTiP Lindblad master-equation simulations (timestep convergence, system size, coupling strength, two-bath driven non-equilibrium steady states, non-thermal initial states). The substitution holds within numerical error for thermal initial states across `T/T_res ∈ [0.20, 0.50]` in both qubit and bosonic-mode systems, with `O(dt)` convergence. It fails for non-thermal initial states with macroscopic coherences — a clean limit on scope.
+The substitution `δQ = T·dS` is examined numerically across five settings via QuTiP Lindblad master-equation simulations (timestep convergence, system size, coupling strength, two-bath driven non-equilibrium steady states, non-thermal initial states). For thermal initial states the substitution is an algebraic identity, so these runs are consistency checks on the open-system integrator rather than independent tests of Assumption A; the coherent-initial-state setting makes it fail, delimiting scope. An independent test would require a model in which the substitution is not guaranteed by the state's structure.
 
 The paper does **not** modify Newtonian or general-relativistic gravity, does not derive a new equation of motion, and does not claim a unification of entropy and gravity. It claims only a falsifiable laboratory signature in cold-atom analog gravity.
 
@@ -44,13 +44,13 @@ The framework is falsified if a controlled BEC analog gravity experiment with `T
 
 1. Exceed the bound by more than experimental uncertainty.
 2. Show no scaling with `T/T_res`.
-3. Show scaling with `T/T_res` but with a functional form inconsistent with `η = 1/(1 + T/T_res)`.
+3. Exhibit a low-loss envelope inconsistent with the Carnot ceiling `η = 1 − T/T_res` (a consistency check on attainability, not a strict falsification).
 
-A confirmation outcome — efficiency suppressed by ~17% at `T/T_res = 0.2`, scaling correctly across the accessible range, surviving independent calibration of mundane loss channels — would constitute the first laboratory-scale evidence that holographic-screen entropy of the Verlinde (2011) type has thermodynamic content beyond the equilibrium force law.
+A confirmation outcome — a low-loss extraction efficiency approaching a ceiling suppressed by ~20% at `T/T_res = 0.2`, with the ceiling tracking `1 − T/T_res` across the accessible range and surviving independent calibration of mundane loss channels — would constitute the first laboratory-scale evidence that holographic-screen entropy of the Verlinde (2011) type has thermodynamic content beyond the equilibrium force law.
 
 ## Reproducibility
 
-Numerical tests in Section 3 use QuTiP 5.2.3. Total compute cost across all reported tests is approximately 30 minutes on a standard CPU. Simulation code, raw output logs, and convergence diagnostics are archived alongside this paper (see Data Availability section in the paper).
+Numerical tests in Section 3 use QuTiP 5.2.3. Total compute cost across all reported tests is approximately 30 minutes on a standard CPU. Simulation scripts, raw output logs, and convergence diagnostics are **not yet publicly archived** — the Zenodo deposit currently holds the paper only, and mirroring to the Labs repo is pending. The numerical method is fully specified in Section 3 of the paper.
 
 ---
 
