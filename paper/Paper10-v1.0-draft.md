@@ -10,9 +10,9 @@
 
 We derive a non-equilibrium efficiency bound for processes that displace excitations against an effective gravitational potential in a Bose–Einstein condensate (BEC) analog gravity system. The bound applies the Clausius inequality to a two-temperature process: a system at the local analog Unruh temperature $T$ coupled to an energy reservoir at temperature $T_{\rm res}$, with the entropy change on a holographic-style screen taken from Verlinde's expression. Under one explicit thermodynamic assumption — that the screen exchanges heat with its immediate environment in a locally reversible manner ($\delta Q = T\,dS$) while the coupling to the reservoir carries the irreversibility — the predicted maximum extraction efficiency is
 
-$$\eta \leq \frac{1}{1 + T/T_{\rm res}}.$$
+$$\eta \leq 1 - \frac{T}{T_{\rm res}}.$$
 
-For laboratory BEC parameters ($T_{\rm res} \sim 50$ nK, $T_{\rm analog} \sim 10$ nK), the bound predicts $\eta \leq 0.83$, a 17% suppression below the naive energetic expectation of $\eta \approx 1$. We argue that the regime $T/T_{\rm res} \sim O(1)$ — accessible in BEC analog gravity but not in any astrophysical setting — is where this bound has empirical content distinguishable from standard energy accounting. The central thermodynamic assumption is tested numerically through a series of Lindblad master-equation simulations across five independent dimensions (timestep convergence, system size, coupling strength, two-bath driven non-equilibrium steady states, and initial-state structure). The simulations support the assumption in the regime $T/T_{\rm res} \geq 0.20$ for thermal-like initial states in both qubit and bosonic-mode systems, with the simulation source code archived and reproducible. We do not modify Newtonian or general-relativistic gravity, do not derive a new equation of motion, and do not claim a unification of entropy and gravity. We claim only that the framework, within its stated scope, predicts a falsifiable laboratory signature in cold-atom analog gravity that distinguishes it from naive energetic accounting.
+For laboratory BEC parameters ($T_{\rm res} \sim 50$ nK, $T_{\rm analog} \sim 10$ nK), the bound predicts $\eta \leq 0.80$, a 20% suppression below the naive energetic expectation of $\eta \approx 1$. We argue that the regime $T/T_{\rm res} \sim O(1)$ — accessible in BEC analog gravity but not in any astrophysical setting — is where this bound has empirical content distinguishable from standard energy accounting. The central substitution $\delta Q = T\,dS$ is examined numerically through a series of Lindblad master-equation simulations across five settings (timestep convergence, system size, coupling strength, two-bath driven non-equilibrium steady states, and initial-state structure). For thermal-like initial states the substitution is an algebraic identity, so these runs function as consistency checks on the open-system integrator rather than independent tests of Assumption (A); the one setting that leaves the thermal manifold — a coherent initial state — makes the substitution fail, delimiting the framework's scope. The simulation scripts are not yet publicly archived (see Data Availability). We do not modify Newtonian or general-relativistic gravity, do not derive a new equation of motion, and do not claim a unification of entropy and gravity. We claim only that the framework, within its stated scope, predicts a falsifiable laboratory signature in cold-atom analog gravity that distinguishes it from naive energetic accounting.
 
 **Keywords:** entropic gravity, analog gravity, Bose–Einstein condensates, non-equilibrium thermodynamics, Lindblad simulations, Unruh effect
 
@@ -28,7 +28,7 @@ This construction recovers Newtonian dynamics under reversible assumptions. It d
 
 This paper takes a narrow approach to that gap. We do not propose a new theory of gravity. We do not modify gravitational dynamics. We ask a single question: *given Verlinde's screen entropy and standard non-equilibrium thermodynamics applied to a two-temperature process, what efficiency bound results, and where can it be tested?* The answer is a Clausius-type inequality. We are explicit throughout that this inequality is not, in itself, novel physics — it follows from combining (1) with the second law applied to processes coupling two thermal reservoirs, under one substantive assumption that we identify, defend, and test numerically in Sections 2 and 3.
 
-The paper's potentially novel content is twofold: first, the *specific functional form* of the resulting efficiency bound, and second, the identification of cold-atom analog gravity as the regime where this functional form becomes restrictive and experimentally testable. Real gravitational systems sit in a parameter regime ($T/T_{\rm res} \ll 1$) where the bound is loose and indistinguishable from the second law. Bose–Einstein condensate analog gravity systems sit in a regime ($T/T_{\rm res} \sim O(1)$) where the bound becomes restrictive and predicts a measurable deviation from naive energetic accounting.
+The paper's potentially novel content is not the functional form of the bound — which is the textbook Carnot form $\eta \leq 1 - T/T_{\rm res}$ and is not claimed as new — but two identifications: first, that Verlinde's screen entropy makes the local analog Unruh temperature $T$ play the role of the effective cold sink in a Carnot-type bound; and second, that cold-atom analog gravity is the regime where this bound becomes restrictive and experimentally testable. Real gravitational systems sit in a parameter regime ($T/T_{\rm res} \ll 1$) where the bound is loose and indistinguishable from the second law. Bose–Einstein condensate analog gravity systems sit in a regime ($T/T_{\rm res} \sim O(1)$) where the bound becomes restrictive and predicts a measurable deviation from naive energetic accounting.
 
 The paper is organized as follows. Section 2 derives the inequality with explicit attention to the central thermodynamic substitution. Section 3 presents numerical tests of that substitution across five independent dimensions. Section 4 derives the efficiency bound and the quantitative BEC prediction. Section 5 discusses the bound's relationship to astrophysical and engineering systems. Section 6 outlines a falsification protocol. Section 7 lists limitations honestly. Section 8 concludes.
 
@@ -70,27 +70,29 @@ We label this Assumption (A) and treat it as load-bearing. The empirical content
 
 Substituting (5) into (3) and using (4) yields, after rearrangement,
 
-$$dS_{\rm prod} \geq \frac{T}{T_{\rm res}}\,|dS_{\rm screen}| - \frac{dE_{\rm extracted}}{T_{\rm res}}. \tag{6}$$
+$$dS_{\rm prod} = \left(1 - \frac{T}{T_{\rm res}}\right)|dS_{\rm screen}| - \frac{dE_{\rm extracted}}{T_{\rm res}} \geq 0. \tag{6}$$
 
-Defining the extraction efficiency $\eta = dE_{\rm extracted}/dE_{\rm input}$, where $dE_{\rm input}$ is the total energy supplied by the reservoir, and using
+The second law ($dS_{\rm prod} \geq 0$) therefore caps the extracted energy:
 
-$$dE_{\rm input} = T\,|dS_{\rm screen}| + T_{\rm res}\,dS_{\rm prod}, \tag{7}$$
+$$dE_{\rm extracted} \leq (T_{\rm res} - T)\,|dS_{\rm screen}|. \tag{7}$$
 
-together with the saturation condition $dS_{\rm prod} \to 0$ that maximizes extraction efficiency, we obtain
+Defining the extraction efficiency $\eta = dE_{\rm extracted}/\delta Q_{\rm res}$ as the ratio of useful work to the heat $\delta Q_{\rm res}$ drawn from the reservoir, and using $\delta Q_{\rm res} = T\,|dS_{\rm screen}| + dE_{\rm extracted}$ from (4)–(5), the reversible (saturation) limit $dS_{\rm prod} \to 0$ gives $\delta Q_{\rm res} \to T_{\rm res}\,|dS_{\rm screen}|$ and hence
 
-$$\boxed{\eta \leq \frac{1}{1 + T/T_{\rm res}}}. \tag{8}$$
+$$\boxed{\eta \leq 1 - \frac{T}{T_{\rm res}}}. \tag{8}$$
+
+This is the Carnot efficiency for extracting work from a reservoir at $T_{\rm res}$ while rejecting waste heat to the screen at the colder temperature $T$; the construction's content is not a new functional form but the physical identification of $T$ and $T_{\rm res}$ (Sections 4–5).
 
 This is the central result.
 
 ### 2.5 Reversible and strong-coupling limits
 
-In the reversible limit $T_{\rm res} \to \infty$, equation (8) gives $\eta \to 1$ and standard conservative mechanics is recovered. In the strong-coupling limit $T_{\rm res} \to T$, the bound predicts $\eta \to 1/2$. The regime $T_{\rm res} < T$ is unphysical for the standard second-law setup considered here.
+In the reversible limit $T_{\rm res} \to \infty$, equation (8) gives $\eta \to 1$ and standard conservative mechanics is recovered. In the strong-coupling limit $T_{\rm res} \to T$, the bound predicts $\eta \to 0$: no work can be extracted when the reservoir and screen sit at the same temperature, as the second law requires. The regime $T_{\rm res} < T$ is unphysical for the standard second-law setup considered here.
 
 ---
 
-## 3. Numerical Tests of Assumption (A)
+## 3. Numerical Consistency Checks of the Substitution $\delta Q = T\,dS$
 
-We tested Assumption (A) in a series of open-quantum-system simulations using the QuTiP library (Johansson, Nation & Nori 2013; QuTiP 5.2.3). The strategy throughout: construct minimal Lindblad models in which the substitution $\delta Q = T \cdot dS$ can be checked directly against numerically computed heat and entropy changes, then probe the substitution along five independent dimensions. The simulation code, raw output logs, and convergence diagnostics are archived alongside this paper (see Data Availability).
+We tested Assumption (A) in a series of open-quantum-system simulations using the QuTiP library (Johansson, Nation & Nori 2013; QuTiP 5.2.3). The strategy throughout: construct minimal Lindblad models in which the substitution $\delta Q = T \cdot dS$ can be checked directly against numerically computed heat and entropy changes, then probe it along five independent settings. We flag a structural caveat at the outset that governs the interpretation of Sections 3.1–3.4: for any state that remains instantaneously thermal, $\delta Q = T\,dS$ holds as an algebraic identity in the continuum ($dt\to0$) limit, so the passing tests measure integrator discretization error and confirm the state parametrization, not the physical reversibility posited in Assumption (A). The genuinely informative outcome is the failure in Section 3.5, where the state leaves the thermal manifold. The simulation scripts and raw logs are not yet publicly archived (see Data Availability).
 
 Each test was specified before execution and reported in full, including failures. Two tests revealed numerical or setup defects in their initial form (one timestep-resolution issue, one Hamiltonian-sign-convention issue) that were corrected in subsequent runs; the failures are documented along with the corrections in the supplementary material. No test outcome was modified post hoc to favor the assumption.
 
@@ -120,9 +122,9 @@ The qubit setup was repeated with $\gamma \in \{0.05, 0.5, 1.0, 2.0\}$, sweeping
 
 A qubit was coupled simultaneously to a hot bath at $T_{\rm hot} = 1.0$ and a cold bath at $T_{\rm cold} = 0.01$, with $\gamma_h = 0.05$ and $\gamma_c \in \{0.005, 0.05, 0.5\}$. The non-equilibrium steady state was found via direct solution of the Lindblad equation. Heat currents were computed directly from the dissipator structure $J_k = \mathrm{Tr}(H \cdot D_k(\rho_{\rm ss}))$ rather than inferred from energy differences, and the entropy current from the hot bath was computed as $dS_{\rm hot} = -\mathrm{Tr}(\log\rho_{\rm ss} \cdot D_{\rm hot}(\rho_{\rm ss}))$.
 
-**Result.** Energy conservation $Q_{\rm in} + Q_{\rm out} = 0$ holds to $\sim 10^{-16}$ across all $\gamma_c$ values. Effective steady-state temperatures are positive and decrease with increasing $\gamma_c$ ($T_{\rm eff}/T_{\rm hot} = 0.94, 0.67, 0.33$), as expected. **The ratio $Q_{\rm in}/(T_{\rm eff} \cdot dS_{\rm hot})$ equals 1.000 exactly in all three cases.** This addresses the most important conceptual concern in the original derivation — that Assumption (A) was being tested only in relaxation, not in genuine driven non-equilibrium settings.
+**Result.** Energy conservation $Q_{\rm in} + Q_{\rm out} = 0$ holds to $\sim 10^{-16}$ across all $\gamma_c$ values. Effective steady-state temperatures are positive and decrease with increasing $\gamma_c$ ($T_{\rm eff}/T_{\rm hot} = 0.94, 0.67, 0.33$), as expected. The ratio $Q_{\rm in}/(T_{\rm eff} \cdot dS_{\rm hot})$ equals 1.000 exactly in all three cases.
 
-We note explicitly that this exactness may reflect detailed-balance structure built into the standard thermal Lindblad form. This is a feature, not a bug, of the model class: standard analog-gravity calculations use precisely this Lindblad framework, so the test confirms that the substitution holds within the framework most likely to be applied to a real BEC experiment. Whether it would hold beyond detailed-balance Lindblad models — for example, in the presence of non-Markovian memory effects or strong-coupling reaction-coordinate treatments — is outside the scope of this paper.
+This exactness is not evidence for Assumption (A): it is an algebraic identity of the way $T_{\rm eff}$ is defined. With $T_{\rm eff} \equiv \omega/\ln(p_0/p_1)$ read off the steady-state populations, the hot-bath heat current is $Q_{\rm in} = \omega\,d_1$ and the hot-bath entropy current is $dS_{\rm hot} = d_1\ln(p_0/p_1) = d_1\,\omega/T_{\rm eff}$, so the ratio is identically $1$ for *any* diagonal steady state — we verified numerically that it remains $1$ to machine precision even for rates that violate detailed balance. The test therefore confirms the self-consistency of the current bookkeeping, not the physical reversibility of a screen–reservoir exchange; it does not probe the conceptual concern it was designed to address.
 
 ### 3.5 Test 5: Non-thermal initial states (negative result)
 
@@ -134,9 +136,9 @@ The qubit setup was repeated with the initial state replaced by the coherent sup
 
 ### 3.6 Summary of numerical evidence
 
-Across five independent test dimensions, Assumption (A) holds exactly (to numerical error) in the dt → 0 limit for thermal initial states across $r \in [0.20, 0.50]$, in both qubit and bosonic-mode systems, with $O(dt)$ convergence and weak dependence on coupling strength up to $\gamma/\omega \approx 2$. It holds exactly in two-bath driven non-equilibrium steady states within the standard detailed-balance Lindblad framework. It fails for non-thermal initial states with macroscopic coherences. At very low temperature ratios ($r \leq 0.10$), convergence to the dt → 0 limit is sub-linear and slow.
+Across the five settings, the substitution $\delta Q = T\,dS$ reproduces to numerical error in the dt → 0 limit for thermal initial states across $r \in [0.20, 0.50]$, in both qubit and bosonic-mode systems, with $O(dt)$ convergence and weak dependence on coupling strength up to $\gamma/\omega \approx 2$, and it holds to machine precision in the two-bath steady state. As Sections 3.1–3.4 make explicit, these are identities on the thermal manifold: they verify the integrator and the parametrization, not the physical reversibility asserted by Assumption (A). The one setting in which the state leaves the thermal manifold — a coherent initial state (Section 3.5) — makes the substitution fail. At very low temperature ratios ($r \leq 0.10$), convergence to the dt → 0 limit is sub-linear and slow.
 
-The validated regime — thermal initial states, weak-to-moderate coupling, $T/T_{\rm res} \in [0.20, 0.50]$, bosonic or qubit systems — encompasses the parameter range targeted by the BEC analog gravity prediction in Section 4. Within this regime, the numerical evidence supports Assumption (A) and the bound (8) that follows from it.
+The upshot is a scope statement, not a confirmation: whenever the extracting system is in or near a thermal state, $\delta Q = T\,dS$ is guaranteed by the state's own structure, and the framework's prediction (bound (8)) inherits that regime of applicability; whenever the system carries macroscopic coherence, the substitution — and with it Assumption (A) — fails. The BEC analog gravity prediction of Section 4 lives in the former regime. An independent test of Assumption (A) would require models in which $\delta Q = T\,dS$ is *not* an identity of the parametrization (non-Markovian baths, reaction-coordinate strong coupling, or systems with off-diagonal steady-state coherence); we identify this as necessary follow-up work.
 
 ---
 
@@ -162,22 +164,22 @@ We apply the bound (8) with $T = T_{\rm analog}$ and $T_{\rm res} = T_{\rm conde
 
 This places the prediction squarely in the regime where Section 3's numerical tests support Assumption (A). The bound predicts a maximum phonon extraction efficiency of
 
-$$\eta_{\rm max} = \frac{1}{1 + 0.2} = 0.833. \tag{10}$$
+$$\eta_{\rm max} = 1 - 0.2 = 0.80. \tag{10}$$
 
-Naive energetic accounting predicts $\eta_{\rm naive} \approx 1$, with deviations only from mundane experimental losses. The bound's prediction differs from naive accounting by approximately 17 percentage points.
+Naive energetic accounting predicts $\eta_{\rm naive} \approx 1$, with deviations only from mundane experimental losses. The bound's prediction differs from naive accounting by 20 percentage points.
 
 ### 4.3 Operational definition of $\eta$
 
 We define $\eta$ as the ratio of extracted phonon energy to input drive energy in a stimulated phonon extraction process: $\eta = E_{\rm phonon,\,extracted}/E_{\rm drive}$. The drive may be a stimulated Bragg scattering pulse, an RF field coupling internal states, or a controlled density-gradient ramp; the specific implementation affects the systematic error budget but not the operational definition.
 
-This choice corresponds to a quantity that has been measured, with various conventions, in published BEC phonon manipulation experiments (Lahav et al. 2010; Steinhauer 2016; Muñoz de Nova et al. 2019). Whether current experimental sensitivities are sufficient to resolve a 17% suppression above the systematic-error floor is a question that can only be settled in dialogue with experimental groups working in this regime; we identify this as a required next step.
+This choice corresponds to a quantity that has been measured, with various conventions, in published BEC phonon manipulation experiments (Lahav et al. 2010; Steinhauer 2016; Muñoz de Nova et al. 2019). Whether current experimental sensitivities are sufficient to resolve a 20% suppression above the systematic-error floor is a question that can only be settled in dialogue with experimental groups working in this regime; we identify this as a required next step.
 
 ### 4.4 Distinguishing from mundane experimental losses
 
-A 17% suppression would be detectable only if it could be cleanly separated from other inefficiencies in BEC phonon manipulation: thermal phonon populations at finite $T_{\rm condensate}$, mode-coupling losses, finite-pulse-width effects, condensate density inhomogeneities. To distinguish a holographic-screen suppression from these mundane losses, the experiment must:
+A 20% suppression would be detectable only if it could be cleanly separated from other inefficiencies in BEC phonon manipulation: thermal phonon populations at finite $T_{\rm condensate}$, mode-coupling losses, finite-pulse-width effects, condensate density inhomogeneities. To distinguish a holographic-screen suppression from these mundane losses, the experiment must:
 
-1. **Vary $T/T_{\rm res}$ in a controlled way** by changing $g_{\rm eff}$, $T_{\rm condensate}$, or both. The bound predicts that $\eta(T/T_{\rm res})$ traces the specific functional form $1/(1 + T/T_{\rm res})$ across the accessible range.
-2. **Demonstrate the predicted scaling, not merely a constant offset.** A constant offset can be reproduced by any of the mundane loss channels; the specific functional form $1/(1 + T/T_{\rm res})$ cannot.
+1. **Vary $T/T_{\rm res}$ in a controlled way** by changing $g_{\rm eff}$, $T_{\rm condensate}$, or both. Because the bound is the Carnot form and is saturated only in the reversible (quasi-static, loss-free) limit, the *expected* signature in a low-loss experiment is that the measured $\eta(T/T_{\rm res})$ tracks the ceiling $1 - T/T_{\rm res}$ from below, approaching it as the protocol approaches reversibility.
+2. **Demonstrate the predicted scaling, not merely a constant offset.** A constant offset can be reproduced by any of the mundane loss channels; a measured efficiency whose *ceiling* scales as $1 - T/T_{\rm res}$ cannot. The discriminating observable is the envelope of $\eta$ versus $T/T_{\rm res}$, not a single-point value.
 3. **Calibrate the mundane loss channels independently** through complementary measurements that suppress or null each channel separately.
 4. **Maintain thermal-like initial conditions for the phonon mode.** As established in Section 3.5, Assumption (A) fails for coherently prepared non-thermal states. The experiment must work with thermally populated phonon modes, not coherently prepared atomic superpositions or squeezed states.
 
@@ -187,7 +189,7 @@ A 17% suppression would be detectable only if it could be cleanly separated from
 
 The bound (8) applies, in principle, to any process driving displacement against an entropic gradient under Assumption (A). For astrophysical and engineering systems, the regime $T/T_{\rm res} \ll 1$ generically holds: the local Unruh temperature for any non-extreme gravitational setting is far below the temperature of any plausible energy reservoir.
 
-For a Saturn V launch, the local Unruh temperature corresponding to surface gravity is approximately $4 \times 10^{-20}$ K, while the combustion chamber temperature is approximately $3500$ K, giving $T/T_{\rm res} \sim 10^{-23}$. The bound's prediction $\eta \leq 1/(1 + 10^{-23})$ is indistinguishable from $\eta \leq 1$, the trivial second-law statement. The same is true for hot Jupiter atmospheric escape, stellar winds, and active galactic nuclei jets to within factors of order $10^{10}$ in either direction.
+For a Saturn V launch, the local Unruh temperature corresponding to surface gravity is approximately $4 \times 10^{-20}$ K, while the combustion chamber temperature is approximately $3500$ K, giving $T/T_{\rm res} \sim 10^{-23}$. The bound's prediction $\eta \leq 1 - 10^{-23}$ is indistinguishable from $\eta \leq 1$, the trivial second-law statement. The same is true for hot Jupiter atmospheric escape, stellar winds, and active galactic nuclei jets to within factors of order $10^{10}$ in either direction.
 
 The bound, in this regime, is loose: any system that satisfies the second law will satisfy the bound, regardless of whether the bound's specific functional form captures real physics. We therefore do not present a numerical regression of efficiency margins against $T/T_{\rm res}$ across astrophysical systems as evidence for the framework. The astrophysical comparison is qualitative context: the bound is compatible with known gravitational phenomenology, but compatibility in a regime where the bound is automatically satisfied is not evidence for the framework's specific functional form.
 
@@ -197,13 +199,13 @@ The decisive test is the BEC experiment of Section 4, in the regime where the bo
 
 ## 6. Falsification Protocol
 
-The framework is falsified if a controlled BEC analog gravity experiment with $T/T_{\rm res}$ varied across $[0.05, 0.5]$ produces phonon extraction efficiencies that:
+Because the framework predicts an inequality, only a measured efficiency that *exceeds* the ceiling can falsify the bound outright; a genuine test of the framework's *specific content* rests on the additional attainability claim that a reversible extraction protocol approaches the Carnot ceiling. We therefore distinguish a hard falsification (criterion 1) from consistency checks on the attainability picture (criteria 2–3). The framework is challenged if a controlled BEC analog gravity experiment with $T/T_{\rm res}$ varied across $[0.05, 0.5]$ produces phonon extraction efficiencies that:
 
-1. **Exceed the bound (8) by more than experimental uncertainty.** Direct violation of the inequality.
-2. **Show no scaling with $T/T_{\rm res}$.** Indicates that the holographic-screen substitution does not apply to acoustic analog systems, falsifying the transposition assumed in Section 4.1.
-3. **Show scaling with $T/T_{\rm res}$ but with a functional form inconsistent with $\eta = 1/(1 + T/T_{\rm res})$ at the level of experimental error bars.** Indicates that either Assumption (A) is wrong (despite the numerical support in Section 3), the analog Unruh identification is wrong, or the screen-entropy formula does not transpose cleanly.
+1. **Exceed the bound (8) by more than experimental uncertainty.** Direct violation of the inequality — the only strict falsification of the stated result.
+2. **Show a ceiling with no dependence on $T/T_{\rm res}$** as $g_{\rm eff}$ or $T_{\rm condensate}$ is varied in a low-loss protocol. A consistency check, not a strict falsification: it would indicate that the holographic-screen substitution does not apply to acoustic analog systems, undermining the transposition assumed in Section 4.1.
+3. **Exhibit a low-loss envelope inconsistent with $\eta = 1 - T/T_{\rm res}$ at the level of experimental error bars.** Also a consistency check on the attainability picture: it would indicate that the analog Unruh identification or the acoustic transposition of the screen-entropy formula does not hold. Because the corrected ceiling is the textbook Carnot form, criterion 3 tests the *physical identifications* $T \to T_{\rm analog}$, $T_{\rm res} \to T_{\rm condensate}$, not a novel functional form.
 
-A confirmation outcome — efficiency suppressed by approximately 17% at $T/T_{\rm res} = 0.2$, scaling correctly across the accessible range, surviving independent calibration of mundane loss channels — would constitute the framework's first non-trivial empirical confirmation in a regime where the bound is restrictive. It would also constitute the first laboratory-scale evidence that holographic-screen entropy has thermodynamic content beyond the equilibrium force law.
+A confirmation outcome — a low-loss extraction efficiency approaching a ceiling suppressed by approximately 20% at $T/T_{\rm res} = 0.2$, with the ceiling tracking $1 - T/T_{\rm res}$ across the accessible range and surviving independent calibration of mundane loss channels — would constitute the first laboratory-scale evidence that holographic-screen entropy has thermodynamic content beyond the equilibrium force law.
 
 ---
 
@@ -217,13 +219,13 @@ We name limitations explicitly. Naming them is part of how this paper aims to be
 
 **(c) The transposition of Verlinde's screen entropy from real gravitational systems to BEC acoustic analog systems is assumed, not derived.** Analog gravity reproduces the kinematics of curved spacetime in acoustic systems; whether it reproduces holographic-screen thermodynamics is itself the question the proposed experiment addresses. Failure of the experiment may indicate the transposition fails rather than that the underlying gravitational construction fails.
 
-**(d) The framework predicts an inequality, not an equality.** A non-equilibrium analog of Jacobson's (1995) derivation — relating screen entropy production to a geometric or dynamical quantity *as an equation of state* — would be substantially stronger. We do not have one. The relative-entropy framework developed in the AdS/CFT context (Faulkner et al. 2014) is the most credible existing path toward such a derivation, and we identify it as the natural direction for follow-up theoretical work.
+**(d) The framework predicts an inequality, and its empirical content depends on an attainability claim.** The Carnot bound is saturated only by a reversible (quasi-static, loss-free) extraction protocol, so observing near-saturation requires both the construction to be correct *and* the experiment to approach the reversible limit. Criteria 2–3 of Section 6 are consequently consistency checks on this attainability picture, not strict falsifications — only a measured efficiency above the ceiling (criterion 1) falsifies the bound itself. A non-equilibrium analog of Jacobson's (1995) derivation — relating screen entropy production to a geometric or dynamical quantity *as an equation of state* — would be substantially stronger; we do not have one. The relative-entropy framework developed in the AdS/CFT context (Faulkner et al. 2014) is the most credible existing path toward such a derivation, and we identify it as the natural direction for follow-up theoretical work.
 
 **(e) At very low temperature ratios ($T/T_{\rm res} \leq 0.10$), convergence of the numerical tests is sub-linear in $dt$.** The substitution still appears to head toward exact equality, but the approach is genuinely slow. Either smaller timesteps or analytic short-time expansions are needed for rigorous validation in this regime. The BEC prediction at $T/T_{\rm res} = 0.20$ sits on the safe side of this boundary, but extensions of the experiment to $T/T_{\rm res} < 0.10$ would require further numerical or analytical work.
 
 **(f) The astrophysical comparison in Section 5 is qualitative.** It demonstrates compatibility, not support. The regime $T/T_{\rm res} \ll 1$ makes the bound loose and the comparison non-discriminating.
 
-**(g) The experimental sensitivity required to resolve the predicted 17% suppression has not been formally established.** Section 4.3 indicates that the operational definition of $\eta$ corresponds to a measured quantity in published BEC experiments. Whether the suppression is resolvable above the systematic error floor of any specific experimental setup requires direct dialogue with experimental groups working in this regime.
+**(g) The experimental sensitivity required to resolve the predicted 20% suppression has not been formally established.** Section 4.3 indicates that the operational definition of $\eta$ corresponds to a measured quantity in published BEC experiments. Whether the suppression is resolvable above the systematic error floor of any specific experimental setup requires direct dialogue with experimental groups working in this regime.
 
 **(h) Earlier drafts of this work invoked entanglement-erasure interpretations and quantum Landauer-principle language. We have not retained these here** because the language was not doing technical work in the derivation. If equation (8) is empirically confirmed, an entanglement-theoretic re-derivation may eventually be possible, but the present construction does not require it.
 
@@ -233,23 +235,23 @@ We name limitations explicitly. Naming them is part of how this paper aims to be
 
 We have applied standard non-equilibrium thermodynamics to a Verlinde-style holographic screen entropy and obtained, under one explicit thermodynamic assumption (Assumption A of Section 2.3), an efficiency bound:
 
-$$\eta \leq \frac{1}{1 + T/T_{\rm res}}.$$
+$$\eta \leq 1 - \frac{T}{T_{\rm res}}.$$
 
-The substitution that defines Assumption (A) has been tested numerically across five independent dimensions (Section 3) using QuTiP Lindblad simulations. It holds within numerical error in the dt → 0 limit for thermal initial states across $T/T_{\rm res} \in [0.20, 0.50]$ in both qubit and bosonic-mode systems, with $O(dt)$ convergence and robustness to coupling strength up to $\gamma/\omega = 2$, and exactly in two-bath driven non-equilibrium steady states. It fails for non-thermal initial states with macroscopic coherences — a clean limit on the framework's scope.
+The substitution that defines Assumption (A) has been examined numerically across five settings (Section 3) using QuTiP Lindblad simulations. For thermal initial states it is an algebraic identity that the simulations reproduce within numerical error in the dt → 0 limit — a consistency check on the integrator rather than an independent test — and it fails for non-thermal initial states with macroscopic coherences, a clean limit on the framework's scope. An independent test of Assumption (A), in a model where the substitution is not guaranteed by the state's structure, remains open.
 
-We have not modified Newtonian or general-relativistic gravity. We have not derived a new equation of motion. We have not unified entropy and gravity in the sense of Ryu–Takayanagi or the broader entanglement-as-geometry program (Van Raamsdonk 2010; Faulkner et al. 2014). We claim only the following: that the bound, within its numerically-validated scope, predicts a 17% efficiency suppression in BEC analog gravity at $T/T_{\rm res} = 0.2$, distinguishable from naive energetic accounting. This is a falsifiable laboratory prediction in a regime where current experimental capabilities can plausibly access it.
+We have not modified Newtonian or general-relativistic gravity. We have not derived a new equation of motion. We have not unified entropy and gravity in the sense of Ryu–Takayanagi or the broader entanglement-as-geometry program (Van Raamsdonk 2010; Faulkner et al. 2014). We claim only the following: that the bound, within its stated scope, predicts a 20% efficiency suppression in BEC analog gravity at $T/T_{\rm res} = 0.2$, distinguishable from naive energetic accounting. This is a falsifiable laboratory prediction in a regime where current experimental capabilities can plausibly access it.
 
 The framework's empirical content stands or falls on this prediction. The astrophysical compatibility of Section 5 is illustrative context, not evidence. A successful BEC test would establish that holographic-screen entropy of the Verlinde (2011) type has thermodynamic content beyond the equilibrium force law — a small but non-trivial empirical result. A failed test would falsify the construction or its acoustic transposition. Either outcome is informative.
 
-Future theoretical work should address: (i) an analytical derivation of Assumption (A) generalizing the Lindblad-model evidence of Section 3; (ii) the validity of transposing screen entropy to acoustic analog systems; (iii) the relation between this non-equilibrium inequality and a putative non-equilibrium equation of state generalizing Jacobson (1995). Future experimental work should establish, in dialogue with active BEC analog gravity groups, the specific implementation and signal-to-noise budget required to distinguish the predicted 17% suppression from mundane experimental losses.
+Future theoretical work should address: (i) an analytical derivation of Assumption (A) generalizing the Lindblad-model evidence of Section 3; (ii) the validity of transposing screen entropy to acoustic analog systems; (iii) the relation between this non-equilibrium inequality and a putative non-equilibrium equation of state generalizing Jacobson (1995). Future experimental work should establish, in dialogue with active BEC analog gravity groups, the specific implementation and signal-to-noise budget required to distinguish the predicted 20% suppression from mundane experimental losses.
 
 ---
 
 ## Data Availability
 
-All simulation code, raw output logs, convergence diagnostics, and intermediate working drafts associated with this paper are archived in the supplementary material accompanying this Zenodo deposit. The simulations were run using QuTiP 5.2.3 in standard Python 3.12 environments. Each numerical test reported in Section 3 corresponds to a complete, executable script with verbatim raw output preserved. Failed initial runs and their corrections are included in full to document the iterative nature of the numerical work.
+As of this version, the simulation scripts, raw output logs, and convergence diagnostics for the Section 3 runs are **not yet publicly archived** — the Zenodo deposit currently holds the paper only, and the companion Windstorm Labs repository is a placeholder pending upload. The numerical method for each test in Section 3 is specified in full in the text, and the scripts will be released in the Labs repository (github.com/Windstorm-Labs/phonon-extraction-bound) and mirrored to a new Zenodo version. Until then the paper is the authoritative description of the numerics.
 
-Reproduction requires QuTiP 5.2.3 or equivalent; total compute cost across all reported tests is approximately 30 minutes on a standard CPU.
+The simulations were run using QuTiP 5.2.3 in standard Python 3.12 environments; total compute cost across all reported tests is approximately 30 minutes on a standard CPU.
 
 ---
 
