@@ -4,10 +4,10 @@
 
 Grant Lavell Whitmer III · Windstorm Labs, The Windstorm Institute · Fort Ann, NY, USA
 
-[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.20014391-blue)](https://doi.org/10.5281/zenodo.20014391)
+[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.20014390-blue)](https://doi.org/10.5281/zenodo.20014390)
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey)](https://creativecommons.org/licenses/by/4.0/)
 
-**Zenodo**: [10.5281/zenodo.20014391](https://doi.org/10.5281/zenodo.20014391) · **Current version: v1.0** (May 2026)
+**Zenodo**: [10.5281/zenodo.20014390](https://doi.org/10.5281/zenodo.20014390) · **Current version: v1.0** (May 2026)
 
 ---
 
@@ -36,7 +36,7 @@ The paper does **not** modify Newtonian or general-relativistic gravity, does no
 QuTiP Lindblad simulations (Section 3 of the paper) and raw output logs:
 **[Windstorm-Labs/phonon-extraction-bound](https://github.com/Windstorm-Labs/phonon-extraction-bound)**
 
-Current authoritative archive: **[Zenodo (10.5281/zenodo.20014391)](https://doi.org/10.5281/zenodo.20014391)**. Mirroring to the Labs repo is in progress.
+Current authoritative archive: **[Zenodo (10.5281/zenodo.20014390)](https://doi.org/10.5281/zenodo.20014390)**. Mirroring to the Labs repo is in progress.
 
 ## Falsification protocol (Section 6)
 
@@ -68,12 +68,12 @@ Numerical tests in Section 3 use QuTiP 5.2.3. Total compute cost across all repo
 
 | # | Paper | DOI |
 |---|-------|-----|
-| 1 | [The Fons Constraint](https://github.com/Windstorm-Institute/fons-constraint) | [10.5281/zenodo.19274048](https://doi.org/10.5281/zenodo.19274048) |
-| 2 | [The Receiver-Limited Floor](https://github.com/Windstorm-Institute/receiver-limited-floor) | [10.5281/zenodo.19322973](https://doi.org/10.5281/zenodo.19322973) |
-| 3 | [The Throughput Basin](https://github.com/Windstorm-Institute/throughput-basin) | [10.5281/zenodo.19323194](https://doi.org/10.5281/zenodo.19323194) |
-| 4 | [The Serial Decoding Basin τ](https://github.com/Windstorm-Institute/serial-decoding-basin) | [10.5281/zenodo.19323423](https://doi.org/10.5281/zenodo.19323423) |
-| 5 | [The Dissipative Decoder](https://github.com/Windstorm-Institute/dissipative-decoder) | [10.5281/zenodo.19433048](https://doi.org/10.5281/zenodo.19433048) |
-| 6 | [The Inherited Constraint](https://github.com/Windstorm-Institute/inherited-constraint) | [10.5281/zenodo.19432911](https://doi.org/10.5281/zenodo.19432911) |
+| 1 | [The Fons Constraint](https://github.com/Windstorm-Institute/fons-constraint) | [10.5281/zenodo.19274047](https://doi.org/10.5281/zenodo.19274047) |
+| 2 | [The Receiver-Limited Floor](https://github.com/Windstorm-Institute/receiver-limited-floor) | [10.5281/zenodo.19322972](https://doi.org/10.5281/zenodo.19322972) |
+| 3 | [The Throughput Basin](https://github.com/Windstorm-Institute/throughput-basin) | [10.5281/zenodo.19323193](https://doi.org/10.5281/zenodo.19323193) |
+| 4 | [The Serial Decoding Basin τ](https://github.com/Windstorm-Institute/serial-decoding-basin) | [10.5281/zenodo.19323422](https://doi.org/10.5281/zenodo.19323422) |
+| 5 | [The Dissipative Decoder](https://github.com/Windstorm-Institute/dissipative-decoder) | [10.5281/zenodo.19432785](https://doi.org/10.5281/zenodo.19432785) |
+| 6 | [The Inherited Constraint](https://github.com/Windstorm-Institute/inherited-constraint) | [10.5281/zenodo.19432910](https://doi.org/10.5281/zenodo.19432910) |
 | 7 | [The Throughput Basin Origin](https://github.com/Windstorm-Institute/throughput-basin-origin) | [10.5281/zenodo.19498582](https://doi.org/10.5281/zenodo.19498582) |
 | 8 | [The Vision Basin](https://github.com/Windstorm-Institute/vision-basin) | [10.5281/zenodo.19672827](https://doi.org/10.5281/zenodo.19672827) |
 | 9 | [The Hardware Basin](https://github.com/Windstorm-Institute/hardware-basin) | [10.5281/zenodo.19672921](https://doi.org/10.5281/zenodo.19672921) |
@@ -82,13 +82,13 @@ Numerical tests in Section 3 use QuTiP 5.2.3. Total compute cost across all repo
 
 | # | Paper | DOI |
 |---|-------|-----|
-| 10 | [Phonon Extraction Bound (BEC Analog Gravity)](https://github.com/Windstorm-Institute/phonon-extraction-bound) *(this paper — 1st in track)* | [10.5281/zenodo.20014391](https://doi.org/10.5281/zenodo.20014391) |
-| 11 | [Gravitational Entropy Escrow](https://github.com/Windstorm-Institute/gravitational-entropy-escrow) *(2nd in track)* | [10.5281/zenodo.20032023](https://doi.org/10.5281/zenodo.20032023) |
-| 12 | [C8 Clarification Note](https://github.com/Windstorm-Institute/c8-clarification-note) *(3rd in track; companion to Paper 11)* | [10.5281/zenodo.20041992](https://doi.org/10.5281/zenodo.20041992) |
-| 13 | [Lattice QFT Test of the Static Escrow Postulate](https://github.com/Windstorm-Institute/lattice-qft-test) *(4th in track; supplement to Paper 11)* | [10.5281/zenodo.20057538](https://doi.org/10.5281/zenodo.20057538) |
-| 14 | [Spacetime as Escrow Bookkeeping](https://github.com/Windstorm-Institute/escrow-spacetime) *(5th in track; translation of standard GR results into the escrow vocabulary; companion to Paper 11)* | [10.5281/zenodo.20126091](https://doi.org/10.5281/zenodo.20126091) |
-| 15 | [The 𝒩<sub>esc</sub> Recipe](https://github.com/Windstorm-Institute/nesc-recipe) *(6th in track; formalizes 𝒩<sub>esc</sub> as a cross-regime function; continuation of Paper 14)* | [10.5281/zenodo.20145106](https://doi.org/10.5281/zenodo.20145106) |
-| 16 | [The Compton Corollary](https://github.com/Windstorm-Institute/compton-corollary) *(short Bekenstein observation; uses 𝒩<sub>esc</sub> notation only, recipe not invoked)* | [10.5281/zenodo.20163451](https://doi.org/10.5281/zenodo.20163451) |
+| 10 | [Phonon Extraction Bound (BEC Analog Gravity)](https://github.com/Windstorm-Institute/phonon-extraction-bound) *(this paper — 1st in track)* | [10.5281/zenodo.20014390](https://doi.org/10.5281/zenodo.20014390) |
+| 11 | [Gravitational Entropy Escrow](https://github.com/Windstorm-Institute/gravitational-entropy-escrow) *(2nd in track)* | [10.5281/zenodo.20031931](https://doi.org/10.5281/zenodo.20031931) |
+| 12 | [C8 Clarification Note](https://github.com/Windstorm-Institute/c8-clarification-note) *(3rd in track; companion to Paper 11)* | [10.5281/zenodo.20041991](https://doi.org/10.5281/zenodo.20041991) |
+| 13 | [Lattice QFT Test of the Static Escrow Postulate](https://github.com/Windstorm-Institute/lattice-qft-test) *(4th in track; supplement to Paper 11)* | [10.5281/zenodo.20057537](https://doi.org/10.5281/zenodo.20057537) |
+| 14 | [Spacetime as Escrow Bookkeeping](https://github.com/Windstorm-Institute/escrow-spacetime) *(5th in track; translation of standard GR results into the escrow vocabulary; companion to Paper 11)* | [10.5281/zenodo.20126090](https://doi.org/10.5281/zenodo.20126090) |
+| 15 | [The 𝒩<sub>esc</sub> Recipe](https://github.com/Windstorm-Institute/nesc-recipe) *(6th in track; formalizes 𝒩<sub>esc</sub> as a cross-regime function; continuation of Paper 14)* | [10.5281/zenodo.20145105](https://doi.org/10.5281/zenodo.20145105) |
+| 16 | [The Compton Corollary](https://github.com/Windstorm-Institute/compton-corollary) *(short Bekenstein observation; uses 𝒩<sub>esc</sub> notation only, recipe not invoked)* | [10.5281/zenodo.20163450](https://doi.org/10.5281/zenodo.20163450) |
 
 **Website:** [windstorminstitute.org](https://windstorminstitute.org)
 
